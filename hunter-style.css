@@ -1,0 +1,842 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f2e8;
+    color: #171717;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 7%;
+
+    background: #f7f2e8;
+    border-bottom: 2px solid #171717;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    margin-left: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #171717;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 90vh;
+
+    padding: 80px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 60px;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tagline,
+.section-label {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.95;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    display: block;
+    text-decoration: underline;
+    text-decoration-thickness: 6px;
+}
+
+.intro {
+    max-width: 560px;
+    margin: 30px 0;
+    font-size: 1.1rem;
+}
+
+
+/* BUTTONS */
+
+.main-button,
+.secondary-button,
+.next-button {
+    border: 2px solid #171717;
+
+    padding: 14px 24px;
+
+    background: #171717;
+    color: white;
+
+    font-size: 0.95rem;
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.main-button:hover,
+.secondary-button:hover,
+.next-button:hover {
+    transform: translateY(-4px) rotate(-1deg);
+    box-shadow: 5px 5px 0 #171717;
+}
+
+.secondary-button {
+    background: transparent;
+    color: #171717;
+}
+
+
+/* HUNTER CARD */
+
+.hunter-card {
+    width: 350px;
+    min-height: 450px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 3px solid #171717;
+
+    box-shadow: 12px 12px 0 #171717;
+
+    transform: rotate(3deg);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    transition: 0.3s;
+}
+
+.hunter-card:hover {
+    transform: rotate(-2deg) translateY(-8px);
+}
+
+.card-header,
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.card-symbol {
+    text-align: center;
+    font-size: 7rem;
+}
+
+.hunter-card h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.hunter-card p {
+    text-align: center;
+}
+
+.card-footer {
+    border-top: 2px solid #171717;
+    padding-top: 12px;
+}
+
+
+/* SECTIONS */
+
+.section {
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    max-width: 550px;
+    margin: 0 auto 40px;
+}
+
+
+/* QUIZ */
+
+.quiz-box {
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 3px solid #171717;
+
+    box-shadow: 8px 8px 0 #171717;
+}
+
+.progress {
+    font-size: 0.8rem;
+    font-weight: 900;
+
+    margin-bottom: 30px;
+}
+
+.quiz-box h3 {
+    font-size: 1.5rem;
+
+    margin-bottom: 30px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.answers button {
+    padding: 18px;
+
+    background: #f7f2e8;
+
+    border: 2px solid #171717;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.answers button:hover,
+.answers button.selected {
+    background: #171717;
+    color: white;
+
+    transform: rotate(-1deg);
+}
+
+.next-button {
+    margin-top: 25px;
+}
+
+.next-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* RESULT */
+
+.result-box {
+    max-width: 600px;
+
+    margin: 50px auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border: 3px solid #171717;
+
+    box-shadow: 8px 8px 0 #171717;
+}
+
+.result-box h2 {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.aura-symbol {
+    font-size: 5rem;
+
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* GAME */
+
+.game-section {
+    background: #171717;
+    color: white;
+}
+
+.game-box {
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: #f7f2e8;
+    color: #171717;
+
+    border: 3px solid white;
+
+    box-shadow: 8px 8px 0 white;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: space-around;
+
+    margin-bottom: 20px;
+}
+
+.game-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-stats strong {
+    font-size: 2rem;
+}
+
+.game-area {
+    height: 350px;
+
+    position: relative;
+
+    margin-bottom: 25px;
+
+    border: 3px dashed #171717;
+
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.target {
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    border: 3px solid #171717;
+
+    background: white;
+
+    font-size: 2rem;
+
+    cursor: pointer;
+
+    animation: pop 0.15s ease;
+}
+
+@keyframes pop {
+
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.game-result {
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border: 2px solid #171717;
+}
+
+
+/* LICENSE */
+
+.license-generator {
+    max-width: 700px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: white;
+
+    border: 3px solid #171717;
+
+    box-shadow: 8px 8px 0 #171717;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.license-generator input {
+    flex: 1;
+
+    padding: 15px;
+
+    border: 2px solid #171717;
+
+    font-size: 1rem;
+}
+
+.final-license {
+    max-width: 600px;
+
+    margin: 50px auto;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 4px solid #171717;
+
+    box-shadow: 10px 10px 0 #171717;
+
+    text-align: left;
+
+    transform: rotate(-1deg);
+}
+
+.license-top {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+}
+
+.license-star {
+    text-align: center;
+
+    font-size: 5rem;
+
+    margin: 15px;
+}
+
+.final-license h2 {
+    text-align: center;
+}
+
+.final-license p {
+    text-align: center;
+}
+
+.license-rank {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 25px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #171717;
+}
+
+
+/* EASTER EGG */
+
+.secret-area {
+    position: fixed;
+
+    right: 15px;
+    bottom: 15px;
+}
+
+.secret-button {
+    width: 35px;
+    height: 35px;
+
+    border: 2px solid #171717;
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.secret-button:hover {
+    transform: rotate(180deg);
+}
+
+
+/* HIDDEN */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 50px 7%;
+
+    text-align: center;
+
+    border-top: 3px solid #171717;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+}
+
+footer small {
+    display: block;
+
+    max-width: 600px;
+
+    margin: 15px auto;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .intro {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hunter-card {
+        width: min(350px, 90%);
+    }
+
+    .section {
+        padding: 70px 5%;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .license-generator {
+        flex-direction: column;
+    }
+
+    .quiz-box,
+    .game-box {
+        padding: 20px;
+    }
+
+    .game-area {
+        height: 300px;
+    }
+}
+/* =========================================
+   PLAYFUL H×H POLISH
+========================================= */
+
+/* Smooth page entrance */
+.hero-content,
+.hunter-card {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Playful logo */
+
+.logo {
+    transition: transform 0.2s ease;
+}
+
+.logo:hover {
+    transform: rotate(-3deg) scale(1.05);
+}
+
+
+/* Navigation hover */
+
+.nav-links a {
+    position: relative;
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Hero button */
+
+.hero .main-button {
+    border-radius: 4px;
+    transition: 0.2s ease;
+}
+
+.hero .main-button:hover {
+    transform: translateY(-5px) rotate(-2deg);
+}
+
+
+/* Hunter card */
+
+.hunter-card {
+    border-radius: 8px;
+}
+
+.card-symbol {
+    animation: floatingAura 2.5s ease-in-out infinite;
+}
+
+@keyframes floatingAura {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+
+/* Quiz answers */
+
+.answers button {
+    border-radius: 6px;
+}
+
+.answers button:nth-child(1):hover {
+    transform: rotate(-2deg) translateY(-3px);
+}
+
+.answers button:nth-child(2):hover {
+    transform: rotate(2deg) translateY(-3px);
+}
+
+.answers button:nth-child(3):hover {
+    transform: rotate(-1deg) translateY(-3px);
+}
+
+.answers button:nth-child(4):hover {
+    transform: rotate(2deg) translateY(-3px);
+}
+
+
+/* Quiz box */
+
+.quiz-box {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.quiz-box:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Game area */
+
+.game-area {
+    border-radius: 8px;
+    background:
+        radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.35),
+        transparent 45%);
+}
+
+
+/* Target */
+
+.target {
+    transition: transform 0.1s ease;
+}
+
+.target:hover {
+    transform: scale(1.15);
+}
+
+
+/* License */
+
+.final-license {
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-license::before {
+    content: "✦  ✧  ✦  ✧  ✦";
+
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    font-size: 12px;
+
+    opacity: 0.25;
+}
+
+
+/* Section spacing */
+
+.section-label {
+    transition: letter-spacing 0.3s ease;
+}
+
+.section-label:hover {
+    letter-spacing: 4px;
+}
+
+
+/* Easter egg */
+
+.secret-button {
+    transition: transform 0.3s ease,
+                background 0.3s ease;
+}
+
+.secret-button:hover {
+    background: #171717;
+    color: white;
+}
+
+
+/* Footer */
+
+footer {
+    background: #f7f2e8;
+}
+
+
+/* Mobile polish */
+
+@media (max-width: 800px) {
+
+    .hero .main-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .hunter-card {
+        margin-top: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .section h2 {
+        font-size: 2.5rem;
+    }
+
+}
